@@ -12,6 +12,7 @@ services:
         tags:
             -   name: event.listener
                 identifier: 'ext-scroll/modify-page-module-content'
+                event: TYPO3\CMS\Backend\Controller\Event\ModifyPageLayoutContentEvent
 
     T3\Scroll\EventListener\RecordListScrollHelperEventListener:
         tags:

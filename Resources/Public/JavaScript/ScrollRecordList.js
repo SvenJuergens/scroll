@@ -1,4 +1,8 @@
-const tx_scroll_module = document.querySelector('body > .module');
+let tx_scroll_module = document.querySelector('body > .module');
+if (TYPO3.settings.cache) {
+    // v13
+    tx_scroll_module = document.querySelector('body > .module > .module-body');
+}
 
 /* Prevents jumping after reload*/
 window.location.hash = '';
@@ -10,7 +14,7 @@ let searchTerm = new URL(window.location.href).searchParams.get('searchTerm') ??
 if (table === undefined) {
     table = '';
 }
-if (typeof(table) === 'string' && table !== '') {
+if (typeof (table) === 'string' && table !== '') {
     table = table + '-';
 }
 if (searchTerm === '') {
@@ -29,16 +33,24 @@ window.addEventListener('unload', function () {
     }
 });
 
-const pos = sessionStorage.getItem(storageKey);
+const pos = parseInt(sessionStorage.getItem(storageKey));
 if (pos) {
     sessionStorage.removeItem(storageKey);
     tx_scroll_module.scrollTo(0, pos);
-    if (pos != tx_scroll_module.scrollTop) {
+    if (pos !== tx_scroll_module.scrollTop) {
         tx_scroll_module.scrollTo(0, pos);
         if (pos > tx_scroll_module.scrollTop) {
+            let timerIterations = 0;
             const timer = setInterval(function () {
+                ++timerIterations;
                 tx_scroll_module.scrollTo(0, pos);
-                if (pos == tx_scroll_module.scrollTop) {
+                if (pos === tx_scroll_module.scrollTop) {
+                    clearInterval(timer);
+                }
+            }, 20);
+
+            tx_scroll_module.addEventListener('scroll', function () {
+                if (timerIterations > 20) {
                     clearInterval(timer);
                 }
             });

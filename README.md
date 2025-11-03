@@ -6,7 +6,7 @@ TYPO3 CMS extension to prevent scroll jumps in the backend. It works in the page
 
 ## Installation
 
-Just install the extension, like any other TYPO3 CMS extension. TYPO3 10 and 11 are supported.
+Just install the extension, like any other TYPO3 CMS extension. TYPO3 12.4 LTS and 13.4 LTS are supported.
 
 Link to TER: https://extensions.typo3.org/extension/scroll
 
@@ -21,7 +21,7 @@ There is no configuration. Just install the extension and enjoy the experience :
 
 ## How it works
 
-EXT:scroll registers two javascript modules (loaded by RequireJS) in the TYPO3 backend. One for the page module ([``ScrollPageModule.js``](./Resources/Public/JavaScript/ScrollPageModule.js))
+EXT:scroll registers two JavaScript modules via TYPO3's module loader in the backend. One for the page module ([``ScrollPageModule.js``](./Resources/Public/JavaScript/ScrollPageModule.js))
 and another for the list view ([``ScrollRecordList.js``](./Resources/Public/JavaScript/ScrollRecordList.js)).
 
 Both scripts utilize the [sessionStorage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 
@@ -41,9 +41,3 @@ For help please visit the [issue section](https://github.com/a-r-m-i-n/scroll/is
 This repository contains a handy DDEV configuration, which allows you to run the extension in a local TYPO3 environment.
 
 More info: https://github.com/a-r-m-i-n/ddev-for-typo3-extensions
-
-## Maybe also interesting for you
-
-EXT:save - Brings Ctrl+S shortcut to TYPO3 backend
-
-URL: https://extensions.typo3.org/extension/save
