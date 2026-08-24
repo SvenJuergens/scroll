@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF[$_EXTKEY] = [
     'title' => 'Scroll',
     'description' => 'Prevents scroll jumps in TYPO3 CMS backend.',
     'category' => 'backend',
@@ -15,4 +15,4 @@ $EM_CONF[$_EXTKEY] = array(
         'conflicts' => [],
         'suggests' => [],
     ],
-);
+];
