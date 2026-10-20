@@ -2,7 +2,7 @@ services:
     web:
         environment:
             - EXTENSION_KEY=scroll
-            - PACKAGE_NAME=t3/scroll
+            - PACKAGE_NAME=svenjuergens/scroll
 
             # TYPO3 config
             - TYPO3_DB_DRIVER=mysqli

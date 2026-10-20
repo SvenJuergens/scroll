@@ -1,5 +1,5 @@
 {
-    "name": "t3/scroll",
+    "name": "svenjuergens/scroll",
     "description": "Prevents scroll jumps in TYPO3 CMS backend.",
     "type": "typo3-cms-extension",
     "license": "GPL-2.0-or-later",
@@ -8,12 +8,22 @@
             "name": "Armin Vieweg",
             "email": "armin@v.ieweg.de",
             "homepage": "https://v.ieweg.de"
+        },
+        {
+            "name": "Sven Jürgens"
         }
     ],
+    "support": {
+        "issues": "https://github.com/SvenJuergens/scroll/issues",
+        "source": "https://github.com/SvenJuergens/scroll"
+    },
     "require": {
         "php": ">=8.2",
         "typo3/cms-core": "^13.4 || ^14.3",
         "typo3/cms-backend": "*"
+    },
+    "replace": {
+        "t3/scroll": "self.version"
     },
     "autoload": {
         "psr-4": {

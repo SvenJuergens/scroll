@@ -4,15 +4,25 @@
 
 TYPO3 CMS extension to prevent scroll jumps in the backend. It works in the page module as well as in the list view.
 
+> **Fork notice:** This is a maintained fork of [a-r-m-i-n/scroll](https://github.com/a-r-m-i-n/scroll)
+> by Armin Vieweg, published as `svenjuergens/scroll`. It adds TYPO3 v14 support and saves the
+> scroll position on `pagehide`, because browsers no longer reliably fire `unload`.
+> For TYPO3 v12, use the original package `t3/scroll` (2.x).
+
 ## Installation
 
-Just install the extension, like any other TYPO3 CMS extension. TYPO3 12.4 LTS and 13.4 LTS are supported.
+TYPO3 13.4 LTS and 14.3 LTS are supported. The fork is available via Composer only (not in TER):
 
-Link to TER: https://extensions.typo3.org/extension/scroll
-
-For Composer, you can use:
 ```
-composer require t3/scroll
+composer require svenjuergens/scroll
+```
+
+The package replaces `t3/scroll` and keeps the extension key `scroll`. To switch from the original
+package, remove it first:
+
+```
+composer remove t3/scroll
+composer require svenjuergens/scroll
 ```
 
 ## Setup
@@ -25,16 +35,16 @@ EXT:scroll registers two JavaScript modules via TYPO3's module loader in the bac
 and another for the list view ([``ScrollRecordList.js``](./Resources/Public/JavaScript/ScrollRecordList.js)).
 
 Both scripts utilize the [sessionStorage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 
-to store the current scrollTop position, before unloading the page.
+to store the current scrollTop position when the page is left (`pagehide`).
 
 Next time the page is loaded and a scrollTop value for this page has been stored in sessionStorage, 
 the script will scroll to the saved position.
 
 ## Support
 
-If you like this TYPO3 extension, you can [donate some funds](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2DCCULSKFRZFU) to support further development. Thank you!
+For help with this fork, please visit the [issue section](https://github.com/SvenJuergens/scroll/issues) on GitHub.
 
-For help please visit the [issue section](https://github.com/a-r-m-i-n/scroll/issues) on GitHub.
+The extension was created by Armin Vieweg. If you like it, you can [donate some funds](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2DCCULSKFRZFU) to support him. Thank you!
 
 ## DDEV Environment
 
