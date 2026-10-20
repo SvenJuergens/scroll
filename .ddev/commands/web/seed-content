@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Description: Seed demo content for scroll testing (many content elements) into a TYPO3 instance
-## Usage: seed-content [v12|v13|v14]
+## Usage: seed-content [v13|v14]
 ## Example: "ddev seed-content v14"
 
 VERSION=${1:-v14}

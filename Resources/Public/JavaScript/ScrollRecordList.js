@@ -1,8 +1,5 @@
-let tx_scroll_module = document.querySelector('body > .module');
-if (TYPO3.settings.cache) {
-    // v13
-    tx_scroll_module = document.querySelector('body > .module > .module-body');
-}
+// v13: the module body is the scroll container
+let tx_scroll_module = document.querySelector('body > .module > .module-body');
 const tx_scroll_overflowY = tx_scroll_module ? window.getComputedStyle(tx_scroll_module).overflowY : '';
 if (tx_scroll_overflowY !== 'auto' && tx_scroll_overflowY !== 'scroll') {
     // v14: the module markup does not scroll anymore, the document itself does
